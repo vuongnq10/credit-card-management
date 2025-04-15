@@ -4,6 +4,7 @@ export interface Transaction {
   transactionType: 'purchase' | 'withdrawal' | 'refund' | 'transfer';
   paymentType: 'card' | 'cash' | 'bank' | 'refund';
   description: string;
+  type: string;
 };
 
 export interface CardHolder {

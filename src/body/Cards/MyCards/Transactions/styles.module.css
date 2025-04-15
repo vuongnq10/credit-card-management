@@ -1,3 +1,7 @@
+.container {
+  margin-bottom: 56px;
+}
+
 .panel {
   background-color: #F5F9FF;
   border-radius: 8px;
@@ -12,7 +16,7 @@
 }
 
 .body {
-  padding: 24px;
+  padding: 0px 24px;
   background-color: #fff;
 }
 
@@ -30,6 +34,13 @@
 .transaction {
   background-color: #fff;
   border-bottom: 1px solid #f5f5f5;
+  display: flex;
+  flex-direction: row;
+  padding: 24px 0px;
+}
+
+.transaction:last-child {
+  border-bottom: 0;
 }
 
 .footer {
@@ -41,4 +52,63 @@
   font-size: 13px;
   background-color: #EDFFF5;
   cursor: pointer;
+}
+
+.transactionType {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 12px;
+}
+
+.name {
+  color: #222222;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.date {
+  color: #AAAAAA;
+  font-size: 13px;
+  font-weight: 200;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+}
+
+.desc {
+  color: #325BAF;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.card {
+  background-color: #325BAF;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.amount {
+  color: #222222;
+  font-size: 14px;
+  font-weight: bold;
 }

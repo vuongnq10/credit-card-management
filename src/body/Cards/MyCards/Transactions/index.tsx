@@ -6,10 +6,16 @@ import Icon from 'components/Icon';
 
 import styles from './styles.module.css';
 
+const bgColor: Record<string, string> = {
+  flight: '#00D6B51A',
+  megaPhone: '#F251951A',
+  fileStorage: '#009DFF1A',
+};
+
 const Index: React.FC = () => {
-  const { transactions } = useAppSelector((state) => state.cards.currentCard);
+  const { name, transactions } = useAppSelector((state) => state.cards.currentCard);
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.panel}>
         <div className={styles.header}>
           <Icon name="cardDetail" />
@@ -26,7 +32,24 @@ const Index: React.FC = () => {
         <div className={styles.body}>
           {transactions.slice(4).map((transaction: Transaction, index: number) => (
             <div className={styles.transaction} key={index}>
-              {transaction.description}
+              <div className={styles.transactionType} style={{ backgroundColor: bgColor[transaction.type] }}>
+                <Icon name={transaction.type} />
+              </div>
+              <div className={styles.content}>
+                <span className={styles.name}>{name}</span>
+                <span className={styles.date}>{transaction.date}</span>
+                <div className={styles.description}>
+                  <div className={styles.card}>
+                    <Icon name="smallCard" />
+                  </div>
+                  <span className={styles.desc}>
+                    {transaction.description}
+                  </span>
+                </div>
+              </div>
+              <div className={styles.amount}>
+                {`- S$ ${transaction.amount}`}
+              </div>
             </div>
           ))}
         </div>

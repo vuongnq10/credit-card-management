@@ -11,56 +11,64 @@ export const cards = [
         amount: 414.05,
         transactionType: "refund",
         paymentType: "card",
-        description: "Grocery store purchase"
+        description: "Grocery store purchase",
+        type: "fileStorage",
       },
       {
         date: "19 Sep 2024",
         amount: 196.87,
         transactionType: "withdrawal",
         paymentType: "cash",
-        description: "Restaurant charge"
+        description: "Restaurant charge",
+        type: "flight",
       },
       {
         date: "1 Feb 2024",
         amount: 139.16,
         transactionType: "transfer",
         paymentType: "card",
-        description: "Gift card purchase"
+        description: "Gift card purchase",
+        type: "megaPhone"
       },
       {
         date: "9 Jan 2021",
         amount: 176.38,
         transactionType: "purchase",
         paymentType: "bank",
-        description: "Grocery store purchase"
+        description: "Grocery store purchase",
+        type: "megaPhone"
       },
       {
         date: "27 Mar 2024",
         amount: 51.26,
         transactionType: "transfer",
         paymentType: "card",
-        description: "Gas station"
+        description: "Gas station",
+        type: "flight",
       },
       {
         date: "22 May 2024",
         amount: 79.25,
         transactionType: "refund",
         paymentType: "bank",
-        description: "Grocery store purchase"
+        description: "Grocery store purchase",
+        type: "fileStorage",
       },
       {
         date: "5 Apr 2022",
         amount: 497.84,
         transactionType: "transfer",
         paymentType: "bank",
-        description: "Gas station"
+        description: "Gas station",
+        type: "megaPhone",
       },
       {
         date: "3 Sep 2020",
         amount: 22.45,
         transactionType: "refund",
         paymentType: "bank",
-        description: "Restaurant charge"
+        description: "Restaurant charge",
+        type: "fileStorage",
       }
     ],
   },
@@ -76,63 +84,72 @@ export const cards = [
         amount: 246.71,
         transactionType: "transfer",
         paymentType: "cash",
-        description: "Online shopping"
+        description: "Online shopping",
+        type: "fileStorage",
       },
       {
         date: "7 Nov 2023",
         amount: 362.26,
         transactionType: "transfer",
         paymentType: "bank",
-        description: "Restaurant charge"
+        description: "Restaurant charge",
+        type: "flight",
       },
       {
         date: "21 Nov 2022",
         amount: 482.63,
         transactionType: "refund",
         paymentType: "card",
-        description: "Refund from retailer"
+        description: "Refund from retailer",
+        type: "megaPhone",
       },
       {
         date: "3 Mar 2021",
         amount: 201.27,
         transactionType: "purchase",
         paymentType: "bank",
-        description: "Utility bill payment"
+        description: "Utility bill payment",
+        type: "fileStorage",
       },
       {
         date: "1 Jun 2020",
         amount: 223.65,
         transactionType: "withdrawal",
         paymentType: "cash",
-        description: "Grocery store purchase"
+        description: "Grocery store purchase",
+        type: "flight",
       },
       {
         date: "10 Oct 2024",
         amount: 76.83,
         transactionType: "purchase",
         paymentType: "refund",
-        description: "Utility bill payment"
+        description: "Utility bill payment",
+        type: "fileStorage",
       },
       {
         date: "25 Mar 2022",
         amount: 390.17,
         transactionType: "refund",
         paymentType: "cash",
-        description: "Gift card purchase"
+        description: "Gift card purchase",
+        type: "flight",
       },
       {
         date: "19 Jun 2022",
         amount: 496,
         transactionType: "transfer",
         paymentType: "card",
-        description: "Gas station"
+        description: "Gas station",
+        type: "megaPhone",
       },
       {
         date: "24 Nov 2021",
         amount: 364.25,
         transactionType: "purchase",
         paymentType: "card",
-        description: "Gift card purchase"
+        description: "Gift card purchase",
+        type: "fileStorage",
       }
     ],
   },
@@ -148,35 +165,40 @@ export const cards = [
         amount: 202.59,
         transactionType: "transfer",
         paymentType: "bank",
-        description: "Restaurant charge"
+        description: "Restaurant charge",
+        type: "flight",
       },
       {
         date: "20 Sep 2023",
         amount: 383.56,
         transactionType: "transfer",
         paymentType: "cash",
-        description: "Gift card purchase"
+        description: "Gift card purchase",
+        type: "fileStorage",
       },
       {
         date: "28 Dec 2023",
         amount: 161.21,
         transactionType: "purchase",
         paymentType: "bank",
-        description: "ATM withdrawal"
+        description: "ATM withdrawal",
+        type: "flight",
       },
       {
         date: "16 Jul 2020",
         amount: 253.41,
         transactionType: "withdrawal",
         paymentType: "cash",
-        description: "Restaurant charge"
+        description: "Restaurant charge",
+        type: "fileStorage",
       },
       {
         date: "25 Dec 2023",
         amount: 124.93,
         transactionType: "refund",
         paymentType: "bank",
-        description: "Money transfer"
+        description: "Money transfer",
+        type: "megaPhone",
       }
     ],
   },
@@ -192,50 +214,33 @@ export const cards = [
         amount: 23.95,
         transactionType: "transfer",
         paymentType: "card",
-        description: "Utility bill payment"
+        description: "Utility bill payment",
+        type: "megaPhone",
       },
       {
         date: "3 Jul 2023",
         amount: 218.48,
         transactionType: "transfer",
         paymentType: "bank",
-        description: "Utility bill payment"
+        description: "Utility bill payment",
+        type: "fileStorage",
       },
       {
         date: "20 Mar 2024",
         amount: 442.02,
         transactionType: "withdrawal",
         paymentType: "card",
-        description: "Online shopping"
+        description: "Online shopping",
+        type: "flight",
       },
       {
         date: "12 Aug 2022",
         amount: 50.16,
         transactionType: "transfer",
         paymentType: "refund",
-        description: "Money transfer"
+        description: "Money transfer",
+        type: "flight",
       },
-      {
-        date: "17 May 2021",
-        amount: 201.58,
-        transactionType: "transfer",
-        paymentType: "cash",
-        description: "Refund from retailer"
-      },
-      {
-        date: "2 Oct 2020",
-        amount: 213.68,
-        transactionType: "withdrawal",
-        paymentType: "bank",
-        description: "Online shopping"
-      },
-      {
-        date: "23 Sep 2022",
-        amount: 282.04,
-        transactionType: "refund",
-        paymentType: "cash",
-        description: "Utility bill payment"
-      }
     ],
   },
   {
@@ -250,35 +255,40 @@ export const cards = [
         amount: 485.86,
         transactionType: "withdrawal",
         paymentType: "cash",
-        description: "Gift card purchase"
+        description: "Gift card purchase",
+        type: "megaPhone",
       },
       {
         date: "27 Jan 2024",
         amount: 98.19,
         transactionType: "purchase",
         paymentType: "refund",
-        description: "Money transfer"
+        description: "Money transfer",
+        type: "fileStorage",
       },
       {
         date: "7 Aug 2024",
         amount: 143.96,
         transactionType: "withdrawal",
         paymentType: "bank",
-        description: "Utility bill payment"
+        description: "Utility bill payment",
+        type: "flight",
       },
       {
         date: "17 Jun 2020",
         amount: 102.63,
         transactionType: "refund",
         paymentType: "bank",
-        description: "Refund from retailer"
+        description: "Refund from retailer",
+        type: "flight",
       },
       {
         date: "13 Oct 2021",
         amount: 288.28,
         transactionType: "withdrawal",
         paymentType: "cash",
-        description: "Online shopping"
+        description: "Online shopping",
+        type: "megaPhone",
       }
     ],
   },
@@ -294,70 +304,40 @@ export const cards = [
         amount: 396.05,
         transactionType: "refund",
         paymentType: "cash",
-        description: "App subscription"
+        description: "App subscription",
+        type: "megaPhone",
       },
       {
         date: "19 Feb 2020",
         amount: 200.34,
         transactionType: "refund",
         paymentType: "card",
-        description: "ATM withdrawal"
+        description: "ATM withdrawal",
+        type: "fileStorage",
       },
       {
         date: "23 Feb 2020",
         amount: 392.29,
         transactionType: "transfer",
         paymentType: "card",
-        description: "Gas station"
+        description: "Gas station",
+        type: "flight",
       },
       {
         date: "3 Aug 2022",
         amount: 21.29,
         transactionType: "transfer",
         paymentType: "bank",
-        description: "Gas station"
+        description: "Gas station",
+        type: "fileStorage",
       },
       {
         date: "18 Dec 2021",
         amount: 406.25,
         transactionType: "refund",
         paymentType: "card",
-        description: "App subscription"
-      },
-      {
-        date: "6 May 2021",
-        amount: 284.9,
-        transactionType: "withdrawal",
-        paymentType: "card",
-        description: "Online shopping"
-      },
-      {
-        date: "25 Nov 2024",
-        amount: 371.5,
-        transactionType: "purchase",
-        paymentType: "refund",
-        description: "Grocery store purchase"
-      },
-      {
-        date: "14 Jul 2022",
-        amount: 422.94,
-        transactionType: "withdrawal",
-        paymentType: "refund",
-        description: "Money transfer"
-      },
-      {
-        date: "9 Jul 2023",
-        amount: 80.54,
-        transactionType: "transfer",
-        paymentType: "cash",
-        description: "Gift card purchase"
-      },
-      {
-        date: "25 Mar 2023",
-        amount: 448.66,
-        transactionType: "purchase",
-        paymentType: "cash",
-        description: "Money transfer"
+        description: "App subscription",
+        type: "flight",
       }
     ],
   },

@@ -7,7 +7,9 @@ import styles from './styles.module.css';
 const Index: React.FC = () => {
   return (
     <div className={styles.container}>
-      <Navigation />
+      <div className={styles.navigation}>
+        <Navigation />
+      </div>
       <div className={styles.content}>
         <Cards />
       </div>

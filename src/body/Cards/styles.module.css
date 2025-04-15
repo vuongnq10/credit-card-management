@@ -15,6 +15,7 @@
 .summary {
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
 }
 
 .currency {
@@ -37,10 +38,38 @@
   flex-grow: 1;
 }
 
+.tabs {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  margin: 4px 0px;
+  padding: 4px 0px;
+  color: #778fa2;
+  font-size: 13px;
+  font-weight: regular;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.tabActive {
+  border-bottom: 2px solid #22cefd;
+  border-radius: 1px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
 @media screen and (min-width: 600px) {
   .container {
     padding: 60px;
     background-color: #fff;
+  }
+
+  .summary {
+    margin-bottom: 32px;
   }
 
   .title {
@@ -49,5 +78,13 @@
 
   .amount {
     color: #222;
+  }
+
+  .tab {
+    font-size: 14px;
+  }
+
+  .tabActive {
+    color: #222222;
   }
 }

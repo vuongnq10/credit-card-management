@@ -1,12 +1,15 @@
 .container {
-  padding: 60px;
+  padding: 24px;
+  margin-bottom: 56px;
+  background-color: #0c365a;
+  height: 100vh;
 }
 
 .title {
-  color: #222;
-  font-size: 16px;
+  color: #fff;
+  font-size: 14px;
   font-weight: 500;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .summary {
@@ -27,8 +30,24 @@
 }
 
 .amount {
+  color: #fff;
   font-size: 26px;
   font-weight: 700;
   margin-left: 12px;
   flex-grow: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    padding: 60px;
+    background-color: #fff;
+  }
+
+  .title {
+    color: #222;
+  }
+
+  .amount {
+    color: #222;
+  }
 }

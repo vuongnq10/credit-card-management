@@ -1,0 +1,9 @@
+.add {
+  fill: #22cefd;
+}
+
+@media screen and (min-width: 600px) {
+  .add {
+    fill: #fff;
+  }
+}

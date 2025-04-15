@@ -1,47 +1,43 @@
-import { CardHolder } from 'types/card';
+import type { CardHolder } from 'types/card';
+import { cards } from 'app/api/card/mockData';
 
-export const SET_LOADING = 'SET_LOADING';
 export const SET_CARD_ITEMS = 'SET_CARD_ITEMS';
+export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
 
-interface SetLoadingAction {
-  type: typeof SET_LOADING;
-  payload: boolean;
-}
-
-
-interface SetCardAction {
-  type: typeof SET_CARD_ITEMS;
-  payload: CardHolder[];
-}
-
-export type CardActionTypes = SetLoadingAction | SetCardAction;
+export type CardActionTypes = {
+  type: string,
+  payload: CardHolder[] | number | boolean,
+};
 
 interface CardState {
-  loading: boolean;
   records: number;
   page: number;
   cards: CardHolder[];
+  currentCard?: CardHolder;
 }
 
 const initialState: CardState = {
-  loading: false,
   records: 2,
-  page: 1,
-  cards: [],
+  page: 2,
+  cards: cards.slice(0, 2) as CardHolder[],
+  currentCard: cards[0] as CardHolder,
 };
 
 const cardReducer = (state = initialState, action: CardActionTypes): CardState => {
   switch (action.type) {
-    case SET_LOADING:
-      return {
-        ...state,
-        loading: action.payload,
-      };
     case SET_CARD_ITEMS:
       return {
         ...state,
         page: state.page + 1,
-        cards: action.payload,
+        cards: [
+          ...state.cards,
+          ...(action.payload as CardHolder[]),
+        ],
+      };
+    case SET_CURRENT_CARD:
+      return {
+        ...state,
+        currentCard: cards[action.payload as number] as CardHolder,
       };
     default:
       return state;

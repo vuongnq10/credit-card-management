@@ -1,10 +1,4 @@
-'use server';
 import Body from 'body';
 
-const Index = () => {
-  return (
-    <Body />
-  );
-};
+export default Body;
 
-export default Index;

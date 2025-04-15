@@ -12,7 +12,7 @@ interface SlickType {
   children: ReactNode;
   settings?: Settings;
 }
-const Index = ({ children, settings }: SlickType) => {
+const Index: React.FC<SlickType> = ({ children, settings }) => {
   const defaultSettings: Settings = {
     variableWidth: true,
     dots: true,

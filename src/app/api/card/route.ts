@@ -5,8 +5,6 @@ export const GET = async (request: Request) => {
 
   const records = Number(searchParams.get('records'));
   const page = Number(searchParams.get('page'));
-  console.log(records * page)
-  console.log(records)
 
   const response = cards.slice(records * page, (records * page) + records);
 

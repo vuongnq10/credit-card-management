@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Slick from 'components/Slick';
 import Icon from 'components/Icon';
-import { setFreezeCard } from 'store/actions/cardActions';
+import { setFreezeCard, setCard } from 'store/actions/cardActions';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import type { CardHolder } from 'types/card';
 
@@ -12,13 +12,18 @@ import styles from './styles.module.css';
 const Index: React.FC = () => {
   const dispatch = useAppDispatch();
   const { cards, currentCard } = useAppSelector((state) => state.cards);
-  // console.log(cards)
+
+  const onSlide = (index: number) => {
+    dispatch(setCard(index));
+  };
 
   return (
     <div>
-      <Slick>
+      <Slick
+        settings={{ afterChange: onSlide }}
+      >
         {cards.map((card: CardHolder, index: number) => (
-          <div key={index} className={styles.card}>
+          <div key={index} className={`${styles.card} ${card.freezed && styles.freeze}`}>
             <div className={styles.logo}>
               <Image src="/card-logo.svg" alt={card.name} width={72} height={20} className={styles.image} />
             </div>

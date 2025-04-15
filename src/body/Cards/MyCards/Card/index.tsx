@@ -14,6 +14,8 @@ const Index: React.FC = () => {
   const { cards, currentCard } = useAppSelector((state) => state.cards);
 
   const onSlide = (index: number) => {
+    console.log(index)
+    console.log(cards)
     dispatch(setCard(index));
   };
 

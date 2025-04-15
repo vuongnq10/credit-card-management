@@ -1,5 +1,5 @@
 import type { CardHolder } from 'types/card';
-import { cards } from 'app/api/card/mockData';
+import { cards as firstInit } from 'app/api/card/mockData';
 
 export const SET_CARD_ITEMS = 'SET_CARD_ITEMS';
 export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
@@ -20,8 +20,8 @@ interface CardState {
 const initialState: CardState = {
   records: 2,
   page: 2,
-  cards: cards.slice(0, 2) as CardHolder[],
-  currentCard: cards[0] as CardHolder,
+  cards: firstInit.slice(0, 2) as CardHolder[],
+  currentCard: firstInit[0] as CardHolder,
 };
 
 const cardReducer = (state = initialState, action: CardActionTypes): CardState => {
@@ -40,7 +40,7 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
     case SET_CURRENT_CARD:
       return {
         ...state,
-        currentCard: cards[action.payload as number] as CardHolder,
+        currentCard: state.cards[action.payload as number] as CardHolder,
       };
     case SET_FREEZE_CARD:
       return {

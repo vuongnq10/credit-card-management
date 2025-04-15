@@ -1,5 +1,8 @@
 .container {
-  margin-bottom: 56px;
+  background-color: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 24px;
+  margin-top: 24px;
 }
 
 .panel {

@@ -5,7 +5,6 @@ import type { Settings } from 'react-slick';
 import './slick.css';
 import './slick-theme.css';
 
-import { Left, Right } from './Icons';
 import './styles.css';
 
 interface SlickType {
@@ -21,9 +20,8 @@ const Index: React.FC<SlickType> = ({ children, settings }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerMode: false,
-    prevArrow: <Left />,
-    nextArrow: <Right />,
     arrows: false,
+    // appendDots: () => <span />,
     ...settings,
   };
 

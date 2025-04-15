@@ -1,18 +1,42 @@
 import React from 'react';
+import Image from 'next/image';
 
+import Slick from 'components/Slick';
 import Icon from 'components/Icon';
 import { setFreezeCard } from 'store/actions/cardActions';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
+import type { CardHolder } from 'types/card';
 
 import styles from './styles.module.css';
 
 const Index: React.FC = () => {
   const dispatch = useAppDispatch();
   const { cards, currentCard } = useAppSelector((state) => state.cards);
+  // console.log(cards)
 
   return (
     <div>
-      <h1>Card Component</h1>
+      <Slick>
+        {cards.map((card: CardHolder, index: number) => (
+          <div key={index} className={styles.card}>
+            <div className={styles.logo}>
+              <Image src="/card-logo.svg" alt={card.name} width={72} height={20} className={styles.image} />
+            </div>
+            <h1 className={styles.cardName}>{card.name}</h1>
+            <span className={styles.cardNumber}>
+              {card.cardNumber}
+            </span>
+            <div className={styles.info}>
+              <span>{`Thru ${card.expirationDate}`}</span>
+              <span>{`CVV: ${card.cvc}`}</span>
+            </div>
+            <div className={styles.logo}>
+              <Image src="/visa-logo.svg" alt={card.name} width={60} height={20} className={styles.image} />
+            </div>
+          </div>
+        ))}
+      </Slick>
+
       <div className={styles.actions}>
         <div className={styles.action} onClick={() => dispatch(setFreezeCard(currentCard.cardNumber))}>
           <Icon name="freeze" />

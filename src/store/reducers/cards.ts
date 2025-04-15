@@ -26,7 +26,8 @@ const initialState: CardState = {
 
 const cardReducer = (state = initialState, action: CardActionTypes): CardState => {
   switch (action.type) {
-    case SET_CARD_ITEMS:
+    case SET_CARD_ITEMS: {
+      console.log(action.payload)
       return {
         ...state,
         page: state.page + 1,
@@ -35,6 +36,7 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
           ...(action.payload as CardHolder[]),
         ],
       };
+    }
     case SET_CURRENT_CARD:
       return {
         ...state,

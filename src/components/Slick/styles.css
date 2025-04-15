@@ -1,6 +1,7 @@
 .slick-slide-wrap .slick-slider {
   display: inline-grid;
   vertical-align: top;
+  margin-bottom: 48px;
 }
 
 .slick-prev {

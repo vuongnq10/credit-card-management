@@ -23,7 +23,7 @@ const Index: React.FC<SlickType> = ({ children, settings }) => {
     centerMode: false,
     prevArrow: <Left />,
     nextArrow: <Right />,
-    arrows: React.Children.count(children) > 1,
+    arrows: false,
     ...settings,
   };
 

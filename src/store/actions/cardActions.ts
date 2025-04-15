@@ -1,6 +1,6 @@
 import { get } from 'services/requests';
 import type { AppDispatch, AppThunkAction } from 'store/hooks';
-import { CardHolder } from 'types/card';
+import type { CardHolder } from 'types/card';
 
 import { SET_CARD_ITEMS, SET_CURRENT_CARD, SET_FREEZE_CARD, CardActionTypes } from 'store/reducers/cards';
 

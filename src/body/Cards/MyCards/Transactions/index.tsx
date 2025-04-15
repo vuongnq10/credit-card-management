@@ -15,7 +15,6 @@ const bgColor: Record<string, string> = {
 const Index: React.FC = () => {
   const { name, transactions } = useAppSelector((state) => state.cards.currentCard);
 
-  console.log(name, transactions)
   return (
     <div className={styles.container}>
       <div className={styles.panel}>

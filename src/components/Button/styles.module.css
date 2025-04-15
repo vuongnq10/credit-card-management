@@ -16,10 +16,12 @@
 
 .btn:hover {
   background-color: #2b4a8e;
+  border-radius: 4px;
 }
 
 .btn:active {
   background-color: #1f3b6e;
+  border-radius: 4px;
 }
 
 .btn span {

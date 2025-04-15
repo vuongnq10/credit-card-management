@@ -15,7 +15,6 @@ const Index: React.FC<SlickType> = ({ children, settings }) => {
   const defaultSettings: Settings = {
     variableWidth: true,
     dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

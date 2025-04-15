@@ -20,8 +20,6 @@
 
 .slick-slide-wrap .slick-slide {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
 }
 

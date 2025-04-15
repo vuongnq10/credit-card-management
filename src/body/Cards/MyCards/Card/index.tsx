@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
 
 import Slick from 'components/Slick';
@@ -12,10 +12,9 @@ import styles from './styles.module.css';
 const Index: React.FC = () => {
   const dispatch = useAppDispatch();
   const { cards, currentCard } = useAppSelector((state) => state.cards);
+  const componentKey = useMemo(() => cards.length * Math.random(), [cards]);
 
   const onSlide = (index: number) => {
-    console.log(index)
-    console.log(cards)
     dispatch(setCard(index));
   };
 
@@ -23,6 +22,7 @@ const Index: React.FC = () => {
     <div>
       <Slick
         settings={{ afterChange: onSlide }}
+        key={componentKey}
       >
         {cards.map((card: CardHolder, index: number) => (
           <div key={index} className={`${styles.card} ${card.freezed && styles.freeze}`}>

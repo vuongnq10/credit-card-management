@@ -5,7 +5,6 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 
 import MyCards from './MyCards';
-import CompanyCards from './CompanyCards';
 import styles from './styles.module.css';
 
 const Index: React.FC = () => {
@@ -30,8 +29,7 @@ const Index: React.FC = () => {
           >All company cards</div>
         </div>
       </div>
-      {tab === 'myCards' && <MyCards />}
-      {tab === 'companyCard' && <CompanyCards />}
+      <MyCards />
     </div>
   );
 };

@@ -1,0 +1,27 @@
+.btn {
+  min-width: 108px;
+  min-height: 36px;
+  color: #fff;
+  background-color: #325bae;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #2b4a8e;
+}
+
+.btn:active {
+  background-color: #1f3b6e;
+}
+
+.btn span {
+  margin-right: 8px;
+}

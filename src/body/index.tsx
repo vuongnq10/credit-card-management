@@ -1,17 +1,15 @@
 import React from 'react';
 
 import Navigation from './Navigation';
+import Cards from './Cards';
 import styles from './styles.module.css';
 
 const Index: React.FC = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.navigation}>
-        <Navigation />
-      </div>
+      <Navigation />
       <div className={styles.content}>
-        <h1>Welcome to the Body Component!</h1>
-        <p>This is a sample body component.</p>
+        <Cards />
       </div>
     </div>
   );

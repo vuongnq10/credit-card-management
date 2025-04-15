@@ -1,3 +1,10 @@
+'use server';
 import Body from 'body';
 
-export default Body;
+const Index = () => {
+  return (
+    <Body />
+  );
+};
+
+export default Index;

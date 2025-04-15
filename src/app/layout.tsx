@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Open_Sans } from 'next/font/google';
 import "./globals.css";
 
+import Provider from 'store/Providers';
+
 const openSans = Open_Sans({
   subsets: ['latin'],
   variable: '--font-open-sans',
@@ -21,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.variable}>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );

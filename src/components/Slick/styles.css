@@ -1,0 +1,33 @@
+.slick-slide-wrap .slick-slider {
+  display: inline-grid;
+  vertical-align: top;
+}
+
+.slick-prev {
+  left: 10px;
+  z-index: 100;
+}
+
+.slick-next {
+  right: 10px;
+  z-index: 100;
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-slide-wrap .slick-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.slick-slide-wrap .slick-slide div {
+  width: 100%;
+}
+
+.slick-slide-wrap button {
+  background-color: black;
+}

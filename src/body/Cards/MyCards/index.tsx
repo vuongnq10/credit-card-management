@@ -1,8 +1,10 @@
 'use client';
 import React, { useEffect } from 'react';
 import { getCards } from 'store/actions/cardActions';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { useAppDispatch } from 'store/hooks';
 
+import Card from './Card';
+import Transactions from './Transactions';
 import styles from './styles.module.css';
 
 const Index: React.FC = () => {
@@ -14,7 +16,12 @@ const Index: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Hello World</h1>
+      <div className={styles.card}>
+        <Card />
+      </div>
+      <div className={styles.transactions}>
+        <Transactions />
+      </div>
     </div>
   );
 };

@@ -1,0 +1,22 @@
+.actions {
+  background-color: #EDF3FF;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 16px;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.actions span {
+  margin-top: 8px;
+  font-size: 13px;
+  text-align: center;
+  color: #0C365A;
+}

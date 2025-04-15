@@ -1,7 +1,15 @@
+.transactions {}
+
 @media screen and (min-width: 600px) {
   .container {
     padding: 40px;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 46px;
+  }
+  .card, .transactions {
+    flex: 1;
   }
 }

@@ -3,17 +3,18 @@ import { cards } from 'app/api/card/mockData';
 
 export const SET_CARD_ITEMS = 'SET_CARD_ITEMS';
 export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
+export const SET_FREEZE_CARD = 'SET_FREEZE_CARD';
 
 export type CardActionTypes = {
   type: string,
-  payload: CardHolder[] | number | boolean,
+  payload: CardHolder[] | number | boolean | string,
 };
 
 interface CardState {
   records: number;
   page: number;
   cards: CardHolder[];
-  currentCard?: CardHolder;
+  currentCard: CardHolder;
 }
 
 const initialState: CardState = {
@@ -38,6 +39,15 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
       return {
         ...state,
         currentCard: cards[action.payload as number] as CardHolder,
+      };
+    case SET_FREEZE_CARD:
+      return {
+        ...state,
+        cards: state.cards.map((card: CardHolder) => ({ ...card, freezed: card.cardNumber === state.currentCard.cardNumber ? !state.currentCard.freezed : card.freezed })),
+        currentCard: {
+          ...state.currentCard,
+          freezed: !state.currentCard.freezed,
+        } as CardHolder,
       };
     default:
       return state;

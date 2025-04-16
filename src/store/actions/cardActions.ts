@@ -2,7 +2,7 @@ import { get } from 'services/requests';
 import type { AppDispatch, AppThunkAction } from 'store/hooks';
 import type { CardHolder } from 'types/card';
 
-import { SET_CARD_ITEMS, SET_CURRENT_CARD, SET_FREEZE_CARD, CardActionTypes } from 'store/reducers/cards';
+import { SET_CARD_ITEMS, SET_CURRENT_CARD, SET_FREEZE_CARD, ADD_NEW_CARD, CardActionTypes } from 'store/reducers/cards';
 
 export const setCards = (items: CardHolder[]): CardActionTypes => ({
   type: SET_CARD_ITEMS,
@@ -17,6 +17,11 @@ export const setCard = (index: number): CardActionTypes => ({
 export const setFreezeCard = (cardNumber: string): CardActionTypes => ({
   type: SET_FREEZE_CARD,
   payload: cardNumber,
+});
+
+export const addCard = (name: string): CardActionTypes => ({
+  type: ADD_NEW_CARD,
+  payload: name,
 });
 
 // Async action creator example

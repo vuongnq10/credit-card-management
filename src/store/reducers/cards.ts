@@ -4,6 +4,7 @@ import { cards as firstInit } from 'app/api/card/mockData';
 export const SET_CARD_ITEMS = 'SET_CARD_ITEMS';
 export const SET_CURRENT_CARD = 'SET_CURRENT_CARD';
 export const SET_FREEZE_CARD = 'SET_FREEZE_CARD';
+export const ADD_NEW_CARD = 'ADD_NEW_CARD';
 
 export type CardActionTypes = {
   type: string,
@@ -49,6 +50,31 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
           freezed: !state.currentCard.freezed,
         } as CardHolder,
       };
+
+    case ADD_NEW_CARD: {
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const years = ['2025', '2026', '2027', '2028'];
+      const month = months[Math.floor(Math.random() * months.length)];
+      const year = years[Math.floor(Math.random() * years.length)];
+
+      const newCard = {
+        name: action.payload,
+        cardNumber: '2020 2020 2020 2020',
+        expirationDate: `${month}/${year}} `,
+        cvc: `${(Math.floor(Math.random() * 9)).toFixed(0)}${(Math.floor(Math.random() * 9)).toFixed(0)}${(Math.floor(Math.random() * 9)).toFixed(0)} `,
+        freezed: false,
+        transactions: []
+      } as CardHolder;
+
+      return {
+        ...state,
+        cards: [
+          ...state.cards,
+          newCard,
+        ],
+        currentCard: newCard
+      };
+    }
     default:
       return state;
   }

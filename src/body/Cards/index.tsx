@@ -4,11 +4,14 @@ import React, { useState } from 'react';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 
+import Modal from './Modal';
 import MyCards from './MyCards';
 import styles from './styles.module.css';
 
 const Index: React.FC = () => {
-  const [tab, setTab] = useState('myCards');
+  const [tab, setTab] = useState<string>('myCards');
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -16,7 +19,7 @@ const Index: React.FC = () => {
         <div className={styles.summary}>
           <span className={styles.currency}>S$</span>
           <span className={styles.amount}>3,000</span>
-          <Button icon={<Icon name='add' />} label="New card" />
+          <Button icon={<Icon name='add' />} label="New card" onClick={() => setOpen(!open)} />
         </div>
         <div className={styles.tabs}>
           <div
@@ -30,6 +33,7 @@ const Index: React.FC = () => {
         </div>
       </div>
       <MyCards />
+      {open && <Modal onClose={() => setOpen(!open)} />}
     </div>
   );
 };

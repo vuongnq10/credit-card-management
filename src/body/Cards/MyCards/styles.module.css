@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: row;
     gap: 46px;
+    height: 100%;
   }
   .card, .transactions {
     flex: 1;

@@ -14,8 +14,13 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const [name, setName] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   const submit = () => {
+    if (Number(name) || Number(name) === 0) {
+      setError('Please enter text for name only.');
+      return;
+    }
     dispatch(addCard(name));
     onClose();
   };
@@ -28,7 +33,12 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
         </button>
         <h2 className={styles.title}>Add new card</h2>
         <div className={styles.content}>
-          <Input value={name} onChange={e => setName(e.target.value)} label="Enter your name" />
+          <Input
+            type="text"
+            value={name}
+            onChange={e => setName(e.target.value)} label="Enter your name"
+            error={error}
+          />
           <div>
             <Button className={styles.submit} label="Submit" onClick={submit} />
           </div>

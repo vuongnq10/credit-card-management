@@ -22,3 +22,9 @@
   outline: none;
   border-color: #0070f3;
 }
+
+.error {
+  color: #e63946;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

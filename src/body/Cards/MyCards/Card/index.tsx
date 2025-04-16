@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import Image from 'next/image';
 
 import Slick from 'components/Slick';
@@ -7,7 +7,55 @@ import { setFreezeCard, setCard } from 'store/actions/cardActions';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import type { CardHolder } from 'types/card';
 
+import { maskString } from './utils';
 import styles from './styles.module.css';
+
+interface CardProps {
+  freezed: boolean;
+  name: string;
+  cardNumber: string;
+  expirationDate: string;
+  cvc: string;
+};
+
+const Card: React.FC<CardProps> = ({
+  freezed,
+  name,
+  cardNumber,
+  expirationDate,
+  cvc,
+}) => {
+  const [mask, setMask] = useState<boolean>(true);
+
+  const convert = () => {
+    setMask(!mask);
+  };
+
+  return (
+    <div className={styles.cardWrap}>
+      <div className={styles.mask} onClick={convert}>
+        <Icon name="eye" />
+        <span>Show card number</span>
+      </div>
+      <div className={`${styles.card} ${freezed && styles.freeze}`}>
+        <div className={styles.logo}>
+          <Image src="/card-logo.svg" alt={name} width={72} height={20} className={styles.image} />
+        </div>
+        <h1 className={styles.cardName}>{name}</h1>
+        <span className={styles.cardNumber}>
+          {mask ? maskString(cardNumber) : cardNumber}
+        </span>
+        <div className={styles.info}>
+          <span>{`Thru ${expirationDate}`}</span>
+          <span>{`CVV: ${cvc}`}</span>
+        </div>
+        <div className={styles.logo}>
+          <Image src="/visa-logo.svg" alt={name} width={60} height={20} className={styles.image} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Index: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -47,22 +95,7 @@ const Index: React.FC = () => {
           key={componentKey}
         >
           {cards.map((card: CardHolder, index: number) => (
-            <div key={index} className={`${styles.card} ${card.freezed && styles.freeze}`}>
-              <div className={styles.logo}>
-                <Image src="/card-logo.svg" alt={card.name} width={72} height={20} className={styles.image} />
-              </div>
-              <h1 className={styles.cardName}>{card.name}</h1>
-              <span className={styles.cardNumber}>
-                {card.cardNumber}
-              </span>
-              <div className={styles.info}>
-                <span>{`Thru ${card.expirationDate}`}</span>
-                <span>{`CVV: ${card.cvc}`}</span>
-              </div>
-              <div className={styles.logo}>
-                <Image src="/visa-logo.svg" alt={card.name} width={60} height={20} className={styles.image} />
-              </div>
-            </div>
+            <Card key={index} {...card} />
           ))}
         </Slick>
       </div>

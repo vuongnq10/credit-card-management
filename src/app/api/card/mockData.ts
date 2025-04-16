@@ -294,7 +294,7 @@ export const cards = [
   },
   {
     name: 'Natalie Kim',
-    cardNumber: '3000 0000 0000 04',
+    cardNumber: '3000 0000 0004',
     expirationDate: '07/30',
     cvc: '963',
     freezed: false,

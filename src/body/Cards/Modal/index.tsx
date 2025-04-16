@@ -9,14 +9,16 @@ import styles from './styles.module.css';
 
 interface ModalProps {
   onClose: () => void;
+  setIndex: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose }) => {
+const Modal: React.FC<ModalProps> = ({ onClose, setIndex }) => {
   const dispatch = useAppDispatch();
   const [name, setName] = useState<string>('');
 
   const submit = () => {
     dispatch(addCard(name));
+    setIndex();
     onClose();
   };
 
@@ -30,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({ onClose }) => {
         <div className={styles.content}>
           <Input value={name} onChange={e => setName(e.target.value)} label="Enter your name" />
           <div>
-            <Button label="Submit" onClick={submit} />
+            <Button className={styles.submit} label="Submit" onClick={submit} />
           </div>
         </div>
       </div>

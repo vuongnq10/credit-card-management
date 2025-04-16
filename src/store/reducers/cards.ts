@@ -60,7 +60,7 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
       const newCard = {
         name: action.payload,
         cardNumber: '2020 2020 2020 2020',
-        expirationDate: `${month}/${year}} `,
+        expirationDate: `${month}/${year}`,
         cvc: `${(Math.floor(Math.random() * 9)).toFixed(0)}${(Math.floor(Math.random() * 9)).toFixed(0)}${(Math.floor(Math.random() * 9)).toFixed(0)} `,
         freezed: false,
         transactions: []

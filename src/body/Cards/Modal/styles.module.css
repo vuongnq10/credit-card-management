@@ -46,3 +46,8 @@
 .closeButton:hover {
   color: #333;
 }
+
+.submit {
+  color: #fff;
+  background-color: #325bae;
+}

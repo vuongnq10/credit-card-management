@@ -9,7 +9,7 @@ import type { CardHolder } from 'types/card';
 
 import styles from './styles.module.css';
 
-const Index: React.FC = () => {
+const Index: React.FC<{ slideIndex?: number }> = ({ slideIndex }) => {
   const dispatch = useAppDispatch();
   const { cards, currentCard } = useAppSelector((state) => state.cards);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,10 @@ const Index: React.FC = () => {
         style={{ height: 250 }}
       >
         <Slick
-          settings={{ afterChange: onSlide }}
+          settings={{
+            afterChange: onSlide,
+            initialSlide: slideIndex || 0,
+          }}
           key={componentKey}
         >
           {cards.map((card: CardHolder, index: number) => (

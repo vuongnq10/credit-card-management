@@ -7,10 +7,11 @@ interface ButtonProps {
   onClick?: () => void;
   children?: React.ReactNode;
   icon?: React.ReactNode;
+  className?: string;
 }
-const Index: React.FC<ButtonProps> = ({ children, icon, label, onClick, ...rest }) => {
+const Index: React.FC<ButtonProps> = ({ children, icon, label, onClick, className, ...rest }) => {
   return (
-    <button className={styles.btn} onClick={onClick} {...rest}>
+    <button className={`${styles.btn} ${className}`} onClick={onClick} {...rest}>
       {icon && <span>{icon}</span>}
       {children || label}
     </button>

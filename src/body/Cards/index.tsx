@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 
+import { useAppSelector } from 'store/hooks';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 
@@ -10,7 +11,9 @@ import styles from './styles.module.css';
 
 const Index: React.FC = () => {
   const [tab, setTab] = useState<string>('myCards');
+  const [slideIndex, setIndex] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
+  const { cards } = useAppSelector((state) => state.cards);
 
   return (
     <div className={styles.container}>
@@ -32,8 +35,15 @@ const Index: React.FC = () => {
           >All company cards</div>
         </div>
       </div>
-      <MyCards />
-      {open && <Modal onClose={() => setOpen(!open)} />}
+      <MyCards slideIndex={slideIndex} />
+      {open && (
+        <Modal
+          setIndex={() => {
+            setIndex(cards.length);
+          }}
+          onClose={() => setOpen(!open)}
+        />
+      )}
     </div>
   );
 };

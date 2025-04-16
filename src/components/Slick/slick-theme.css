@@ -105,7 +105,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: -32px;
+    bottom: -16px;
 
     display: block;
 
@@ -116,6 +116,12 @@
     list-style: none;
 
     text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .slick-dots {
+        bottom: -32px;
+    }
 }
 .slick-dots li
 {

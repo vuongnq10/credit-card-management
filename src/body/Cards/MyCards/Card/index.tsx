@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import Image from 'next/image';
 
 import Slick from 'components/Slick';
@@ -25,25 +25,15 @@ const Card: React.FC<CardProps> = ({
   expirationDate,
   cvc,
 }) => {
-  const [mask, setMask] = useState<boolean>(true);
-
-  const convert = () => {
-    setMask(!mask);
-  };
-
   return (
     <div className={styles.cardWrap}>
-      <div className={styles.mask} onClick={convert}>
-        <Icon name="eye" />
-        <span>Show card number</span>
-      </div>
-      <div className={`${styles.card} ${freezed && styles.freeze}`}>
+      <div className={`${styles.card} ${freezed ? styles.freeze : ''}`}>
         <div className={styles.logo}>
           <Image src="/card-logo.svg" alt={name} width={72} height={20} className={styles.image} />
         </div>
         <h1 className={styles.cardName}>{name}</h1>
         <span className={styles.cardNumber}>
-          {mask ? maskString(cardNumber) : cardNumber}
+          {maskString(cardNumber)}
         </span>
         <div className={styles.info}>
           <span>{`Thru ${expirationDate}`}</span>
@@ -52,6 +42,10 @@ const Card: React.FC<CardProps> = ({
         <div className={styles.logo}>
           <Image src="/visa-logo.svg" alt={name} width={60} height={20} className={styles.image} />
         </div>
+      </div>
+      <div className={styles.mask}>
+        <Icon name="eye" />
+        <span>Show card number</span>
       </div>
     </div>
   );

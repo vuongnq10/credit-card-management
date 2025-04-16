@@ -18,7 +18,7 @@
 }
 
 .actions {
-  margin-top: 28px;
+  margin-top: 32px;
   background-color: #EDF3FF;
   padding: 20px;
   display: flex;
@@ -44,23 +44,25 @@
 
 .cardWrap {
   position: relative;
+  padding: 12px;
 }
 
 .card {
-  margin-top: 28px;
   background-color: #04d166;
   border-radius: 12px;
   box-shadow: 0px 2px #00000014;
   min-height: 220px;
   width: 100%;
   padding: 24px;
-  z-index: 99;
+  margin-top: 24px;
+  z-index: 9999;
 }
 
 .mask {
   position: absolute;
-  top: -24px;
-  right: 0px;
+  /* top: -24px; */
+  top: 12px;
+  right: 12px;
   color: #01D167;
   background-color: #fff;
   display: inline-block;
@@ -70,9 +72,8 @@
   align-items: center;
   padding: 4px 10px;
   border-radius: 6px 6px 0px 0px;
-  z-index: 99;
-  transform: translateY(50px);
   padding-bottom: 12px;
+  z-index: -1;
 }
 
 .mask span {
@@ -80,7 +81,7 @@
 }
 
 .freeze {
-  opacity: 0.5;
+  background-color: #148462;
 }
 
 .logo {
@@ -106,4 +107,15 @@
   font-weight: bold;
   color: #fff;
   margin-bottom: 4px;
+}
+
+@media screen and (min-width: 600px) {
+  .cardWrap {
+    padding: 0px;
+  }
+  .mask {
+    position: absolute;
+    top: -24px;
+    right: 0px;
+  }
 }

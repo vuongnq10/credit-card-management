@@ -1,3 +1,22 @@
+.wrapper {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+  will-change: opacity, transform;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
 .actions {
   background-color: #EDF3FF;
   padding: 20px;

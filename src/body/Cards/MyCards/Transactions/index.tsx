@@ -31,7 +31,7 @@ const Index: React.FC = () => {
           <Icon name="up" />
         </div>
         <div className={styles.body}>
-          {transactions.slice(4).map((transaction: Transaction, index: number) => (
+          {transactions.slice(0, 3).map((transaction: Transaction, index: number) => (
             <div className={styles.transaction} key={index}>
               <div className={styles.transactionType} style={{ backgroundColor: bgColor[transaction.type] }}>
                 <Icon name={transaction.type} />

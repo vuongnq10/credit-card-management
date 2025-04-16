@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import Image from 'next/image';
 
 import Slick from 'components/Slick';
@@ -12,7 +12,21 @@ import styles from './styles.module.css';
 const Index: React.FC = () => {
   const dispatch = useAppDispatch();
   const { cards, currentCard } = useAppSelector((state) => state.cards);
-  const componentKey = useMemo(() => cards.length * Math.random(), [cards]);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  const componentKey = useMemo(() => {
+    wrapperRef?.current?.classList.remove(styles.fadeIn);
+    wrapperRef?.current?.classList.add(styles.fadeOut);
+
+    setTimeout(() => {
+      if (wrapperRef.current) {
+        wrapperRef.current.classList.remove(styles.fadeOut);
+        wrapperRef.current.classList.add(styles.fadeIn);
+      }
+    }, 350);
+
+    return cards.length * Math.random();
+  }, [cards]);
 
   const onSlide = (index: number) => {
     dispatch(setCard(index));
@@ -20,29 +34,35 @@ const Index: React.FC = () => {
 
   return (
     <div>
-      <Slick
-        settings={{ afterChange: onSlide }}
-        key={componentKey}
+      <div
+        ref={wrapperRef}
+        className={`${styles.wrapper} ${styles.fadeIn}`}
+        style={{ height: 250 }}
       >
-        {cards.map((card: CardHolder, index: number) => (
-          <div key={index} className={`${styles.card} ${card.freezed && styles.freeze}`}>
-            <div className={styles.logo}>
-              <Image src="/card-logo.svg" alt={card.name} width={72} height={20} className={styles.image} />
+        <Slick
+          settings={{ afterChange: onSlide }}
+          key={componentKey}
+        >
+          {cards.map((card: CardHolder, index: number) => (
+            <div key={index} className={`${styles.card} ${card.freezed && styles.freeze}`}>
+              <div className={styles.logo}>
+                <Image src="/card-logo.svg" alt={card.name} width={72} height={20} className={styles.image} />
+              </div>
+              <h1 className={styles.cardName}>{card.name}</h1>
+              <span className={styles.cardNumber}>
+                {card.cardNumber}
+              </span>
+              <div className={styles.info}>
+                <span>{`Thru ${card.expirationDate}`}</span>
+                <span>{`CVV: ${card.cvc}`}</span>
+              </div>
+              <div className={styles.logo}>
+                <Image src="/visa-logo.svg" alt={card.name} width={60} height={20} className={styles.image} />
+              </div>
             </div>
-            <h1 className={styles.cardName}>{card.name}</h1>
-            <span className={styles.cardNumber}>
-              {card.cardNumber}
-            </span>
-            <div className={styles.info}>
-              <span>{`Thru ${card.expirationDate}`}</span>
-              <span>{`CVV: ${card.cvc}`}</span>
-            </div>
-            <div className={styles.logo}>
-              <Image src="/visa-logo.svg" alt={card.name} width={60} height={20} className={styles.image} />
-            </div>
-          </div>
-        ))}
-      </Slick>
+          ))}
+        </Slick>
+      </div>
 
       <div className={styles.actions}>
         <div className={styles.action} onClick={() => dispatch(setFreezeCard(currentCard.cardNumber))}>

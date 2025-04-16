@@ -1,7 +1,6 @@
 .container {
   background-color: #fff;
   border-radius: 24px 24px 0 0;
-  padding: 24px;
   margin-top: 24px;
 }
 
@@ -10,6 +9,10 @@
   border-radius: 8px;
   border: 1px solid #F5F5F5;
   margin-bottom: 24px;
+}
+
+.panel:last-child {
+  margin-bottom: 0;
 }
 
 .header {
@@ -115,4 +118,10 @@
   color: #222222;
   font-size: 14px;
   font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    margin-top: 0px;
+  }
 }

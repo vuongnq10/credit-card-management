@@ -1,7 +1,8 @@
 .container {
-  margin-bottom: 108px;
+  margin-bottom: 32px;
   background-color: #0c365a;
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 24px;
 }
 
 .header {

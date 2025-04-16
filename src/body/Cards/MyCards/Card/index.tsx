@@ -9,9 +9,9 @@ import type { CardHolder } from 'types/card';
 
 import styles from './styles.module.css';
 
-const Index: React.FC<{ slideIndex?: number }> = ({ slideIndex }) => {
+const Index: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { cards, currentCard } = useAppSelector((state) => state.cards);
+  const { cards, slideIndex, currentCard } = useAppSelector((state) => state.cards);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const componentKey = useMemo(() => {

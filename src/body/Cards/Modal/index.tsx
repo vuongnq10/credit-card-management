@@ -9,16 +9,14 @@ import styles from './styles.module.css';
 
 interface ModalProps {
   onClose: () => void;
-  setIndex: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, setIndex }) => {
+const Modal: React.FC<ModalProps> = ({ onClose }) => {
   const dispatch = useAppDispatch();
   const [name, setName] = useState<string>('');
 
   const submit = () => {
     dispatch(addCard(name));
-    setIndex();
     onClose();
   };
 

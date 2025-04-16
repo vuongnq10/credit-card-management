@@ -7,7 +7,7 @@ import Card from './Card';
 import Transactions from './Transactions';
 import styles from './styles.module.css';
 
-const Index: React.FC<{ slideIndex?: number }> = ({ slideIndex }) => {
+const Index: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Index: React.FC<{ slideIndex?: number }> = ({ slideIndex }) => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <Card slideIndex={slideIndex} />
+        <Card />
       </div>
       <div className={styles.transactions}>
         <Transactions />

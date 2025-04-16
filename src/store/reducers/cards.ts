@@ -14,6 +14,7 @@ export type CardActionTypes = {
 interface CardState {
   records: number;
   page: number;
+  slideIndex: number;
   cards: CardHolder[];
   currentCard: CardHolder;
 }
@@ -21,6 +22,7 @@ interface CardState {
 const initialState: CardState = {
   records: 2,
   page: 2,
+  slideIndex: 0,
   cards: firstInit.slice(0, 2) as CardHolder[],
   currentCard: firstInit[0] as CardHolder,
 };
@@ -40,6 +42,7 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
       return {
         ...state,
         currentCard: state.cards[action.payload as number] as CardHolder,
+        slideIndex: action.payload as number,
       };
     case SET_FREEZE_CARD:
       return {
@@ -72,7 +75,8 @@ const cardReducer = (state = initialState, action: CardActionTypes): CardState =
           ...state.cards,
           newCard,
         ],
-        currentCard: newCard
+        currentCard: newCard,
+        slideIndex: state.cards.length as number,
       };
     }
     default:
